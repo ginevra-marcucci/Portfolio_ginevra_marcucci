@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./documents/favicon.png">
   <title> Ginevra Marcucci — Portfolio</title>
   <meta name="description" content="Portfolio di Ginevra Marcucci, studentessa AI Developer e Data Analyst, appassionata di analisi dei dati e tecnologie innovative.">
   <link rel="stylesheet" href="style.css" />
@@ -71,7 +72,7 @@
       <div class="about-grid">
         <div class="about-photo-wrap">
           <div class="about-photo">
-            <img src="./img/profile_photo.png" alt="Profile photo" loading="lazy" />
+            <img src="./documents/profile_photo.png" alt="Profile photo" loading="lazy" />
           </div>
           <div class="about-photo-border"></div>
         </div>
@@ -103,7 +104,7 @@
           <p class="label">Curriculum Vitae</p>
           <h2 class="section-title">Il Mio Percorso</h2>
         </div>
-        <a href="cv.pdf" download class="btn-primary">
+        <a href="./documents/CV_Ginevra_Marcucci.pdf" download="Ginevra_Marcucci_CV.pdf" download class="btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Scarica CV
         </a>
@@ -183,20 +184,23 @@
       <h2 class="section-title">Rimaniamo in contatto</h2>
 
       <div class="contact-grid">
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Messaggio inviato! Ti ricontatterò al più presto.'); this.reset();">
+        <form class="contact-form" action="https://formsubmit.co/ginevra.marcucci04@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nuovo messaggio dal Portfolio">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" placeholder="Tuo nome" maxlength="100" required />
+              <input type="text" name="nome" placeholder="Tuo nome" maxlength="100" required />
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" placeholder="nome@email.com" maxlength="255" required />
+              <input type="email" name="email" placeholder="nome@email.com" maxlength="255" required />
             </div>
           </div>
           <div class="form-group">
             <label>Messaggio</label>
-            <textarea rows="5" placeholder="Tuo Messaggio" maxlength="1000" required></textarea>
+            <textarea name="messaggio" rows="5" placeholder="Tuo Messaggio" maxlength="1000" required></textarea>
           </div>
           <button type="submit" class="btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
@@ -211,7 +215,7 @@
               <div class="info-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               </div>
-              <a href="mailto:john.doe@email.com">ginevra.marcucci04@email.com</a>
+              <a href="mailto:ginevra.marcucci04@gmail.com">ginevra.marcucci04@gmail.com</a>
             </div>
             <div class="info-item">
               <div class="info-icon">
