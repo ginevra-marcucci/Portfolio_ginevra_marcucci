@@ -250,7 +250,7 @@ ul { list-style: none; }
 .skill-pills.soft {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.9rem;
 }
 
 .skill-pill-soft {
