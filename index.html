@@ -267,14 +267,14 @@
 
       <div class="contact-grid">
         <form id="contactForm" class="contact-form">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Nuovo messaggio dal Portfolio">
-          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="access_key" value="d8d15906-b243-4c90-a0c6-a2de74411ba8">
+          <input type="hidden" name="subject" value="Nuovo messaggio dal Portfolio">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           
           <div class="form-row">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" name="nome" placeholder="Tuo nome" maxlength="100" required />
+              <input type="text" name="name" placeholder="Tuo nome" maxlength="100" required />
             </div>
             <div class="form-group">
               <label>Email</label>
@@ -284,7 +284,7 @@
           
           <div class="form-group">
             <label>Messaggio</label>
-            <textarea name="messaggio" rows="5" placeholder="Tuo messaggio" maxlength="1000" required></textarea>
+            <textarea name="message" rows="5" placeholder="Tuo messaggio" maxlength="1000" required></textarea>
           </div>
           
           <button type="submit" class="btn-primary">
@@ -301,32 +301,32 @@
         <script>
           const form = document.getElementById('contactForm');
           const message = document.getElementById('formMessage');
-
+        
           form.addEventListener('submit', function(e) {
-            e.preventDefault(); // blocca il reload/redirect
-
-            const formData = new FormData(form);
-
-            fetch('https://formsubmit.co/ajax/ginevra.marcucci04@gmail.com', {
+            e.preventDefault();
+        
+            fetch('https://api.web3forms.com/submit', {
               method: 'POST',
-              body: formData,
+              body: new FormData(form),
               headers: { 'Accept': 'application/json' }
             })
             .then(response => response.json())
             .then(data => {
-              form.reset(); // pulisce i campi
+              if (!data.success) throw new Error(data.message || 'Invio non riuscito');
+              form.reset();
+              message.textContent = 'Messaggio inviato con successo!';
               message.style.color = 'green';
               message.style.display = 'block';
-              setTimeout(() => message.style.display = 'none', 4000); // scompare dopo 4s
+              setTimeout(() => message.style.display = 'none', 4000);
             })
             .catch(error => {
-              message.style.color = 'red';
+              console.error('Errore invio form:', error);
               message.textContent = 'Ops! Qualcosa è andato storto, riprova.';
+              message.style.color = 'red';
               message.style.display = 'block';
             });
           });
         </script>
-
         <div class="contact-info">
           <h3>Info contatti</h3>
           <div class="info-items">
